@@ -1,0 +1,25 @@
+type token =
+    VAR
+  | TOURNE
+  | RPAREN
+  | POINTVIRGULE
+  | PLUS
+  | NOMBRE of int
+  | MOINS
+  | LPAREN
+  | IDENTIFICATEUR of string
+  | HAUTPINCEAU
+  | FIN
+  | EOF
+  | EGAL
+  | DEBUT
+  | BASPINCEAU
+  | AVANCE
+val menhir_begin_marker : int
+val xv_programme : unit
+val xv_instruction : unit
+val xv_expressionSuite : unit
+val xv_expression : unit
+val xv_declarations : unit
+val xv_blocInstruction : unit
+val menhir_end_marker : int
