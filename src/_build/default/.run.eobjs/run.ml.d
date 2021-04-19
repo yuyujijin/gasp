@@ -1,1 +1,1 @@
-run.ml: Checker Lexer Lexing Parser Printf
+run.ml: Checker Interpreter Lexer Lexing Parser Printf

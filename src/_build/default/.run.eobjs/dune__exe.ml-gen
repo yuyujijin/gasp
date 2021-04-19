@@ -2,6 +2,10 @@
 module Checker = Dune__exe__Checker
 
 
+(** @canonical Dune__exe.Interpreter *)
+module Interpreter = Dune__exe__Interpreter
+
+
 (** @canonical Dune__exe.Lexer *)
 module Lexer = Dune__exe__Lexer
 
@@ -16,3 +20,7 @@ module Run = Dune__exe__Run
 
 (** @canonical Dune__exe.Syntax *)
 module Syntax = Dune__exe__Syntax
+
+
+(** @canonical Dune__exe.Turtle *)
+module Turtle = Dune__exe__Turtle

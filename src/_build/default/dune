@@ -5,4 +5,5 @@
  (modules parser))
 
 (executable
+ (libraries graphics)
  (name run))
