@@ -25,4 +25,4 @@ exception Error
 
 (* The monolithic API. *)
 
-val programme: (Lexing.lexbuf -> token) -> Lexing.lexbuf -> (unit)
+val axiome: (Lexing.lexbuf -> token) -> Lexing.lexbuf -> (Syntax.programme)

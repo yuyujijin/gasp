@@ -1,1 +1,1 @@
-run.ml: Lexer Lexing Parser
+run.ml: Checker Lexer Lexing Parser

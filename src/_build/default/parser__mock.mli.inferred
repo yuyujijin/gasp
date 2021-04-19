@@ -16,10 +16,11 @@ type token =
   | BASPINCEAU
   | AVANCE
 val menhir_begin_marker : int
-val xv_programme : unit
-val xv_instruction : unit
-val xv_expressionSuite : unit
-val xv_expression : unit
-val xv_declarations : unit
-val xv_blocInstruction : unit
+val xv_programme : Syntax.programme
+val xv_list_declarations_ : string list
+val xv_instruction : Syntax.instruction
+val xv_expression : Syntax.expression
+val xv_declarations : string
+val xv_blocInstruction : Syntax.instruction list
+val xv_axiome : Syntax.programme
 val menhir_end_marker : int
