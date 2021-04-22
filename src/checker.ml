@@ -35,6 +35,9 @@ let rec check_declared_used declarations instruction =
                           (function instruction -> 
                           check_declared_used declarations instruction) 
                           il
+  | Condition (e, is1, is2) -> check_expression declarations e;
+                               check_declared_used declarations is1;
+                               check_declared_used declarations is2
   | _ -> ()
 ;;
 

@@ -39,6 +39,9 @@ let rec exec vars instruction turtle =
                           ) 
                           vars)
   | BlocInstruction il -> exec_list vars il turtle
+  | Condition (e, is1, is2) -> if eval vars e != 0
+                               then exec vars is1 turtle 
+                               else exec vars is2 turtle
 (* et execute une liste d'instruction *)
 and exec_list vars l turtle =
   match l with
@@ -49,7 +52,7 @@ and exec_list vars l turtle =
 let interprate (declarations, instruction) = 
   try
     (* on execute les instructions *)
-    let turtle = create_window 100 100 in
+    let turtle = create_window 550 550 in
     ignore (exec (create_env declarations) instruction turtle);
 
     (* puis on attend une touche pour quitter *)

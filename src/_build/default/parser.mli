@@ -4,6 +4,8 @@
 type token = 
   | VAR
   | TOURNE
+  | SINON
+  | SI
   | RPAREN
   | POINTVIRGULE
   | PLUS
@@ -18,6 +20,7 @@ type token =
   | DEBUT
   | BASPINCEAU
   | AVANCE
+  | ALORS
 
 (* This exception is raised by the monolithic API functions. *)
 

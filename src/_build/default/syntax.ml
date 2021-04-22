@@ -12,6 +12,7 @@ type instruction =
   | HautPinceau
   | Affectation of string * expression
   | BlocInstruction of instruction list
+  | Condition of expression * instruction * instruction
 
 type type_declaration = Int
 type declaration = string

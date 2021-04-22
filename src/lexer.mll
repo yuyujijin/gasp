@@ -26,6 +26,9 @@ rule token = parse
     | '='       { EGAL }
     | '+'       { PLUS }
     | '-'       { MOINS }
+    | "Si"      { SI }
+    | "Alors"   { ALORS }
+    | "Sinon"   { SINON }
     | ['1'-'9']['0'-'9']* | '0' as n    { NOMBRE (int_of_string n) }
     | ['a'-'z']['a'-'z''A'-'Z''0'-'9']* as s  { IDENTIFICATEUR s }
     | eof       { EOF }

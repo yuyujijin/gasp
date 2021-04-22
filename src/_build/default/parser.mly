@@ -4,6 +4,7 @@
 %token <int> NOMBRE
 %token LPAREN RPAREN
 %token EGAL PLUS MOINS
+%token SI ALORS SINON
 %left PLUS
 %left MOINS
 %start axiome
@@ -26,6 +27,7 @@ instruction:
     |   HAUTPINCEAU             { HautPinceau }
     |   id = IDENTIFICATEUR EGAL exp = expression { Affectation(id, exp) }
     |   DEBUT bi = blocInstruction FIN   { BlocInstruction(bi) }
+    |   SI exp = expression ALORS is1 = instruction SINON is2 = instruction { Condition (exp, is1, is2) }
 ;
 blocInstruction:
         is = instruction POINTVIRGULE bi = blocInstruction    { is :: bi }

@@ -1,6 +1,8 @@
 type token =
     VAR
   | TOURNE
+  | SINON
+  | SI
   | RPAREN
   | POINTVIRGULE
   | PLUS
@@ -15,6 +17,7 @@ type token =
   | DEBUT
   | BASPINCEAU
   | AVANCE
+  | ALORS
 val menhir_begin_marker : int
 val xv_programme : Syntax.programme
 val xv_list_declarations_ : string list
