@@ -9,6 +9,13 @@ let rec create_env declarations =
   | [] -> []
   | h :: t -> (h, 0) :: create_env t
 
+let get_operation operation =
+  match operation with
+  | Plus -> (+)
+  | Moins -> (-)
+  | Mult -> ( * )
+  | Div -> (/)
+
 (* Evalue une expression, compte donné des variables *)
 let rec eval vars expr = 
   match expr with
@@ -16,11 +23,15 @@ let rec eval vars expr =
   | Identificateur s -> let (_, v) = 
                         List.find (fun (i, _) -> i = s) vars
                         in v
-  | Formule (e1, o, e2) ->
-    match o with
-    | Plus -> (eval vars e1) + (eval vars e2)
-    | Moins -> (eval vars e1) - (eval vars e2)
-
+  | Formule (e1, o, e2) -> get_operation o (eval vars e1) (
+                               if o = Div then
+                                 let deno = (eval vars e2) in
+                                 if deno = 0
+                                 then raise(Error("Division par zéro"))
+                                 else deno
+                               else (eval vars e2)
+                             )
+             
 (* Execute les instructions une a une *)
 let rec exec vars instruction turtle =
   match instruction with
@@ -42,6 +53,10 @@ let rec exec vars instruction turtle =
   | Condition (e, is1, is2) -> if eval vars e != 0
                                then exec vars is1 turtle 
                                else exec vars is2 turtle
+  | TantQue (e, is) -> if eval vars e != 0
+                       then let (t, v) = exec vars is turtle in
+                       exec v (TantQue (e,is)) t
+                       else (turtle, vars)
 (* et execute une liste d'instruction *)
 and exec_list vars l turtle =
   match l with

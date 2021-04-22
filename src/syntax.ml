@@ -1,4 +1,4 @@
-type operation = Plus | Moins
+type operation = Plus | Moins | Mult | Div
 
 type expression =
   | Entier of int
@@ -13,6 +13,7 @@ type instruction =
   | Affectation of string * expression
   | BlocInstruction of instruction list
   | Condition of expression * instruction * instruction
+  | TantQue of expression * instruction
 
 type type_declaration = Int
 type declaration = string

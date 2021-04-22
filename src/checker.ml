@@ -38,6 +38,8 @@ let rec check_declared_used declarations instruction =
   | Condition (e, is1, is2) -> check_expression declarations e;
                                check_declared_used declarations is1;
                                check_declared_used declarations is2
+  | TantQue (e, is) -> check_expression declarations e;
+                       check_declared_used declarations is
   | _ -> ()
 ;;
 
