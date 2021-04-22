@@ -11,6 +11,7 @@
 %left MOINS
 %left MULT
 %left DIV
+%right ALORS SINON
 %start axiome
 %type <programme> axiome
 %{ open Syntax %}
@@ -32,10 +33,12 @@ instruction:
     |   id = IDENTIFICATEUR EGAL exp = expression { Affectation(id, exp) }
     |   DEBUT bi = blocInstruction FIN   { BlocInstruction(bi) }
     |   SI exp = expression ALORS is1 = instruction SINON is2 = instruction { Condition (exp, is1, is2) }
+    |   SI exp = expression ALORS is = instruction { Condition(exp, is, Avance(Entier(0))) }
     |   TANTQUE exp = expression FAIRE is = instruction { TantQue(exp,is) }
     |   CHANGECOULEUR c = IDENTIFICATEUR { ChangeCouleur(c) }
     |   CHANGEEPAISSEUR exp = expression { ChangeEpaisseur(exp) }
-;
+      ;
+        
 blocInstruction:
         is = instruction POINTVIRGULE bi = blocInstruction    { is :: bi }
     |   { [] }
