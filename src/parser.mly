@@ -6,6 +6,7 @@
 %token EGAL PLUS MOINS MULT DIV
 %token SI ALORS SINON
 %token TANTQUE FAIRE
+%token CHANGECOULEUR CHANGEEPAISSEUR
 %left PLUS
 %left MOINS
 %left MULT
@@ -32,6 +33,8 @@ instruction:
     |   DEBUT bi = blocInstruction FIN   { BlocInstruction(bi) }
     |   SI exp = expression ALORS is1 = instruction SINON is2 = instruction { Condition (exp, is1, is2) }
     |   TANTQUE exp = expression FAIRE is = instruction { TantQue(exp,is) }
+    |   CHANGECOULEUR c = IDENTIFICATEUR { ChangeCouleur(c) }
+    |   CHANGEEPAISSEUR exp = expression { ChangeEpaisseur(exp) }
 ;
 blocInstruction:
         is = instruction POINTVIRGULE bi = blocInstruction    { is :: bi }

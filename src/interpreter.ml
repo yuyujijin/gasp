@@ -57,6 +57,9 @@ let rec exec vars instruction turtle =
                        then let (t, v) = exec vars is turtle in
                        exec v (TantQue (e,is)) t
                        else (turtle, vars)
+  | ChangeCouleur c -> (execute turtle (Color c), vars)
+  | ChangeEpaisseur e -> let v = eval vars e in
+                         (execute turtle (LineWidth v), vars)
 (* et execute une liste d'instruction *)
 and exec_list vars l turtle =
   match l with

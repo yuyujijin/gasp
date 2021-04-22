@@ -27,7 +27,7 @@ let rec check_expression declarations expression =
 (* verifie que chaque variable utilisée est effectivement déclarée *)
 let rec check_declared_used declarations instruction =
   match instruction with
-  | Avance e | Tourne e -> check_expression declarations e
+  | Avance e | Tourne e | ChangeEpaisseur e -> check_expression declarations e
   | Affectation (s,e) ->  if not (List.mem s declarations)
                           then raise(Error("Variable utilisée non déclarée"))
                           else check_expression declarations e

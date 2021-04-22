@@ -7,6 +7,8 @@ type command =
 | Turn of int
 | HautPinceau
 | BasPinceau
+| LineWidth of int
+| Color of string
 
 type position = {
   x: float;      (** position x *)
@@ -14,6 +16,19 @@ type position = {
   a: int;        (** angle of the direction *)
   drawing: bool;
 }
+
+let get_color (c : string) =
+  match c with
+  | "noir" -> Graphics.black
+  | "blanc" -> Graphics.white
+  | "rouge" -> Graphics.red
+  | "vert" -> Graphics.green
+  | "bleu" -> Graphics.blue
+  | "jaune" -> Graphics.yellow
+  | "cyan" -> Graphics.cyan
+  | "magenta" -> Graphics.magenta
+  | _ -> raise(Error("Couleur inconnue"))
+  
               
 let init_turtle =
   {
@@ -59,6 +74,13 @@ let update_drawing (turtle : position) (draw : bool) =
     drawing = draw
   }
 
+let color (turtle : position) (c : string)  =
+  set_color (get_color c); turtle
+
+let linewidth (turtle : position) (i : int) =
+  if i <= 0 then raise(Error("Epaisseur invalide"))
+  else set_line_width i; turtle
+  
 let check_boundary (turtle : position) =
   if turtle.x < 0. || turtle.x >= float_of_int (size_x ())
      || turtle.y < 0. || turtle.y >= float_of_int (size_y ())
@@ -75,6 +97,8 @@ let execute (turtle : position) (cmd : command) =
   | Turn i -> turn turtle i
   | HautPinceau -> update_drawing turtle false
   | BasPinceau -> update_drawing turtle true
+  | Color c -> color turtle c
+  | LineWidth i -> linewidth turtle i
 ;;
 
 (* create_window permet de créer une fenêtre graphique de taille width x height *)

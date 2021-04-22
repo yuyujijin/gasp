@@ -14,6 +14,8 @@ type instruction =
   | BlocInstruction of instruction list
   | Condition of expression * instruction * instruction
   | TantQue of expression * instruction
+  | ChangeCouleur of string
+  | ChangeEpaisseur of expression
 
 type type_declaration = Int
 type declaration = string
