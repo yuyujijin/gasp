@@ -1,4 +1,5 @@
-type operation = Plus | Moins | Mult | Div
+type operation = Plus | Moins | Mult | Div 
+| Egalite | Inferieur | Superieur | InferieurEgal | SuperieurEgal
 
 type expression =
   | Entier of int

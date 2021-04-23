@@ -7,10 +7,12 @@
 %token SI ALORS SINON
 %token TANTQUE FAIRE
 %token CHANGECOULEUR CHANGEEPAISSEUR
+%token EGALITE INFERIEUR SUPERIEUR INFERIEUREGAL SUPERIEUREGAL
 %left PLUS
 %left MOINS
 %left MULT
 %left DIV
+%left EGALITE INFERIEUR SUPERIEUR INFERIEUREGAL SUPERIEUREGAL
 %right ALORS SINON
 %start axiome
 %type <programme> axiome
@@ -51,5 +53,10 @@ expression:
     |   e1 = expression MOINS e2 = expression { Formule(e1, Moins, e2) }
     |   e1 = expression MULT e2 = expression { Formule(e1, Mult, e2) }
     |   e1 = expression DIV e2 = expression { Formule(e1, Div, e2) }
+    |   e1 = expression EGALITE e2 = expression { Formule(e1, Egalite, e2) }
+    |   e1 = expression INFERIEUR e2 = expression { Formule(e1, Inferieur, e2) }
+    |   e1 = expression SUPERIEUR e2 = expression { Formule(e1, Superieur, e2) }
+    |   e1 = expression INFERIEUREGAL e2 = expression { Formule(e1, InferieurEgal, e2) }
+    |   e1 = expression SUPERIEUREGAL e2 = expression { Formule(e1, SuperieurEgal, e2) }
     |   LPAREN e = expression RPAREN { e }
 ;

@@ -9,12 +9,21 @@ let rec create_env declarations =
   | [] -> []
   | h :: t -> (h, 0) :: create_env t
 
+
 let get_operation operation =
+  let bool_int op =
+    fun x y -> if op x y then 1 else 0
+  in
   match operation with
   | Plus -> (+)
   | Moins -> (-)
   | Mult -> ( * )
   | Div -> (/)
+  | Egalite -> bool_int (=)
+  | Inferieur -> bool_int (<)
+  | Superieur -> bool_int (>)
+  | InferieurEgal -> bool_int (<=)
+  | SuperieurEgal -> bool_int (>=)
 
 (* Evalue une expression, compte donné des variables *)
 let rec eval vars expr = 

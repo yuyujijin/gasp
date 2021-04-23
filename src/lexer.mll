@@ -21,6 +21,11 @@ rule token = parse
     | "Tourne"  { TOURNE }
     | "BasPinceau"  { BASPINCEAU }
     | "HautPinceau" { HAUTPINCEAU }
+    | "==" { EGALITE }
+    | "<"  { INFERIEUR }
+    | ">"  { SUPERIEUR }
+    | "<=" { INFERIEUREGAL }
+    | ">=" { SUPERIEUREGAL }
     | '('       { LPAREN }
     | ')'       { RPAREN }
     | '='       { EGAL }
