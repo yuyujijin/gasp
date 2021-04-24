@@ -20,6 +20,7 @@ let get_operation operation =
   | Mult -> ( * )
   | Div -> (/)
   | Egalite -> bool_int (=)
+  | Different -> bool_int (!=)
   | Inferieur -> bool_int (<)
   | Superieur -> bool_int (>)
   | InferieurEgal -> bool_int (<=)
@@ -69,6 +70,7 @@ let rec exec vars instruction turtle =
   | ChangeCouleur c -> (execute turtle (Color c), vars)
   | ChangeEpaisseur e -> let v = eval vars e in
                          (execute turtle (LineWidth v), vars)
+  | Rien -> (turtle, vars)
 (* et execute une liste d'instruction *)
 and exec_list vars l turtle =
   match l with

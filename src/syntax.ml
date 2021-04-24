@@ -1,5 +1,5 @@
 type operation = Plus | Moins | Mult | Div 
-| Egalite | Inferieur | Superieur | InferieurEgal | SuperieurEgal
+| Egalite | Different | Inferieur | Superieur | InferieurEgal | SuperieurEgal
 
 type expression =
   | Entier of int
@@ -17,6 +17,7 @@ type instruction =
   | TantQue of expression * instruction
   | ChangeCouleur of string
   | ChangeEpaisseur of expression
+  | Rien
 
 type type_declaration = Int
 type declaration = string

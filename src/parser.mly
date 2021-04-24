@@ -7,12 +7,12 @@
 %token SI ALORS SINON
 %token TANTQUE FAIRE
 %token CHANGECOULEUR CHANGEEPAISSEUR
-%token EGALITE INFERIEUR SUPERIEUR INFERIEUREGAL SUPERIEUREGAL
+%token EGALITE DIFFERENT INFERIEUR SUPERIEUR INFERIEUREGAL SUPERIEUREGAL
 %left PLUS
 %left MOINS
 %left MULT
 %left DIV
-%left EGALITE INFERIEUR SUPERIEUR INFERIEUREGAL SUPERIEUREGAL
+%left EGALITE DIFFERENT INFERIEUR SUPERIEUR INFERIEUREGAL SUPERIEUREGAL
 %right ALORS SINON
 %start axiome
 %type <programme> axiome
@@ -35,7 +35,7 @@ instruction:
     |   id = IDENTIFICATEUR EGAL exp = expression { Affectation(id, exp) }
     |   DEBUT bi = blocInstruction FIN   { BlocInstruction(bi) }
     |   SI exp = expression ALORS is1 = instruction SINON is2 = instruction { Condition (exp, is1, is2) }
-    |   SI exp = expression ALORS is = instruction { Condition(exp, is, Avance(Entier(0))) }
+    |   SI exp = expression ALORS is = instruction { Condition(exp, is, Rien) }
     |   TANTQUE exp = expression FAIRE is = instruction { TantQue(exp,is) }
     |   CHANGECOULEUR c = IDENTIFICATEUR { ChangeCouleur(c) }
     |   CHANGEEPAISSEUR exp = expression { ChangeEpaisseur(exp) }
@@ -50,10 +50,10 @@ expression:
     |   n = NOMBRE { Entier(n) }
     |   MOINS e = expression { Formule(Entier(0), Moins, e)  }
     |   e1 = expression PLUS e2 = expression { Formule(e1, Plus, e2) }
-    |   e1 = expression MOINS e2 = expression { Formule(e1, Moins, e2) }
     |   e1 = expression MULT e2 = expression { Formule(e1, Mult, e2) }
     |   e1 = expression DIV e2 = expression { Formule(e1, Div, e2) }
     |   e1 = expression EGALITE e2 = expression { Formule(e1, Egalite, e2) }
+    |   e1 = expression DIFFERENT e2 = expression { Formule(e1, Different, e2) }
     |   e1 = expression INFERIEUR e2 = expression { Formule(e1, Inferieur, e2) }
     |   e1 = expression SUPERIEUR e2 = expression { Formule(e1, Superieur, e2) }
     |   e1 = expression INFERIEUREGAL e2 = expression { Formule(e1, InferieurEgal, e2) }

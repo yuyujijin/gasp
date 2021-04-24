@@ -22,6 +22,7 @@ rule token = parse
     | "BasPinceau"  { BASPINCEAU }
     | "HautPinceau" { HAUTPINCEAU }
     | "==" { EGALITE }
+    | "!=" { DIFFERENT }
     | "<"  { INFERIEUR }
     | ">"  { SUPERIEUR }
     | "<=" { INFERIEUREGAL }
