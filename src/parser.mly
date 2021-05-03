@@ -50,6 +50,7 @@ expression:
     |   n = NOMBRE { Entier(n) }
     |   MOINS e = expression { Formule(Entier(0), Moins, e)  }
     |   e1 = expression PLUS e2 = expression { Formule(e1, Plus, e2) }
+    |   e1 = expression MOINS e2 = expression { Formule(e1, Moins, e2) }
     |   e1 = expression MULT e2 = expression { Formule(e1, Mult, e2) }
     |   e1 = expression DIV e2 = expression { Formule(e1, Div, e2) }
     |   e1 = expression EGALITE e2 = expression { Formule(e1, Egalite, e2) }
