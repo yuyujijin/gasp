@@ -2,6 +2,6 @@ Var x;
 Debut
 BasPinceau;
 Tourne -45;
-x = 0;
+x = 1;
 Si x != 0 Alors Avance 250;
 Fin
