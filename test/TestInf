@@ -1,0 +1,12 @@
+Var x;
+Debut
+x = 100;
+BasPinceau;
+Tourne -45;
+Tant que x >= 0 Faire
+    Debut
+        Avance 1;
+        x = x - 1;
+    Fin
+;
+Fin
