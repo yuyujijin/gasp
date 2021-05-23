@@ -3,12 +3,12 @@
 La première partie du sujet a été commencée par chacun.e des membres du binôme, chacun.e de son côté, pour pouvoir avoir une approche personnelle du sujet. Ainsi, la vérification de la syntaxe peut se tester dans le fichier : `/test/TestEOF` ou `/test/TestSyntErr`.
 La vérification d'existance et de non-double déclaration des variables se fait dans le fichier `/src/checker.ml` et  peut se tester dans `/test/TestAngle`, `/test/TestDiv0` et `/test/TestBords` tester la division par 0 et les variables non déclarées avec les fichiers `/test/TestAngle`, `/test/TestDiv0` et `/test/TestBords`.
 
-La seconde partie du sujet, ainsi que la plupart des suivantes se sont faites en binôme. Nous travaillions ensemble, dans la même la salle. Elle s'est faite sans difficultés particulières.
+La seconde partie du sujet, ainsi que la plupart des suivantes se sont faites en binôme. Nous travaillions ensemble, dans la même la salle. Elle s'est faite sans difficultés particulières. Le `Tant que ... Faire ...` peut se tester avec `/test/TestTantQue`, tandis que le `Si ... Alors ... Sinon ...` peut se tester avec `/test/TestSiSinon`, si le x, ligne 5 est égal à 1 on obtient baman, sinon un H.
 
-La troisième partie a été de la même façon réalisée en binôme. 
+La troisième partie a été de la même façon réalisée en binôme. On peut tester les négatifs présents avec le fichier `/test/TestH`.
 
 La quatrième partie se divise en trois questions.
-La première concerne l'epaisseur et la couleur des traits, que l'on a, comme le reste, implémentée en binôme. Elle peut se tester aavec le fichier `/test/TestBatman`.
+La première concerne l'epaisseur et la couleur des traits, que l'on a, comme le reste, implémentée en binôme. Elle peut se tester avec le fichier `/test/TestBatman`.
 La seconde nous a posé un souci particulier de par son ambiguité. En effet, l'expression suivante :
 `Si expression1 Alors Si expression2 Alors instruction1 Sinon instruction2` peut se comprendre de deux façons différentes.
 

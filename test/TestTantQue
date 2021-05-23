@@ -1,0 +1,22 @@
+Var x;
+Debut
+x = 549;
+BasPinceau;
+
+Avance x;
+Tourne -90;
+Avance x;
+Tourne -180;
+Avance x;
+Tourne -270;
+x = x-10;
+Avance x;
+
+Tant que x>9
+Faire
+Debut
+Tourne 90;
+Avance x;
+x = x-30;
+Fin;
+Fin

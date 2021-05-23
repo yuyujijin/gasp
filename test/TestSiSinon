@@ -2,10 +2,11 @@ Var x;
 Var angle;
 Var y;
 Debut
-x = 90;
+x = 1;
 Si x != 0
 Alors 
 Debut
+x=90;
 angle = 0;
 Tourne -45;
 HautPinceau;
@@ -14,26 +15,18 @@ Avance 100;
 BasPinceau;
 Tourne 45;
 Avance 400;
-
 Tourne -150;
 Avance 150;
-
 Tourne 150-90;
 Avance 100;
-
 Tourne 60;
 Avance 150;
-
 Tourne -150;
 Avance 400;
-
 Tourne -90;
 Avance 250;
-
 HautPinceau;
-
 Tourne -90;
-
 Avance 180;
 Tourne -90;
 Avance 50;
@@ -57,10 +50,11 @@ Avance 30;
 
 Tourne 0-70;
 Avance 40;
-Fin;
+Fin
 Sinon 
 Debut
 y=-90;
+x=90;
 Avance 200;
 Tourne y;
 Avance 300;
