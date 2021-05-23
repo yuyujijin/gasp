@@ -11,19 +11,20 @@ La quatrième partie se divise en trois questions.
 - La première concerne l'epaisseur et la couleur des traits, que nous avons, comme le reste, implémentée en binôme. Elle peut se tester avec le fichier `/test/TestBatman`.
 - La seconde nous a posé un souci particulier de par son ambiguité. En effet, l'expression suivante :
 `Si expression1 Alors Si expression2 Alors instruction1 Sinon instruction2` peut se comprendre de deux façons différentes.
-
-Soit 1) Si expression1  
+    1. Si expression1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si expression2  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors instruction1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sinon instruction2  
+    **Ici, le conflit est résolu en avec un `reduce`**
 
-Soit 2) Si expression1  
+    2. Si expression1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si expression2  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors instruction1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sinon instruction2  
+    **Ici, le conflit est résolut avec un `shift`**
 
-En choisissant pour règle `%right ALORS SINON`, on privilégie la seconde version, si expression1 est fausse aucune instruction ne s'exécute.
-Ce choix se vérifie avec le fichier /test/TestSiSansSinon où la première instruction de ce type n'est pas exécutée.
+En choisissant pour règle `%right ALORS SINON`, on donne la même priorité a `ALORS` et `SINON`, et décidons de résoudre les conflits par l'associativé à droite, donc un `shift`. On privilégie donc la seconde version; si expression1 est fausse aucune instruction ne s'exécute.
+Ce choix se vérifie avec le fichier `/test/TestSiSansSinon` où la première instruction de ce type n'est pas exécutée.
 - La troisième question a été étudiée, plus précisemment par un membre du binôme, Eugène. Seulement elle necéssitait de trop importantes modifications. Il fallait passer menhir en mode interprété, ajouter un point d'entrée ne concernant que les instructions, et modifier le mode d'interpétation. En outre, ces étapes nécessitaient de reconstruire une bonne partie du projet, et nous avons décidé de ne pas en tenir compte.
