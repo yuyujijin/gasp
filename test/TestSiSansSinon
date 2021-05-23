@@ -3,5 +3,7 @@ Debut
 BasPinceau;
 Tourne -45;
 x = 1;
-Si x != 0 Alors Avance 250;
+Si x != 1 Alors Si x != 0 Alors Avance 250 Sinon Avance 100;
+Si x != 0 Alors Si x != 1 Alors Avance 500 Sinon Avance 100;
+
 Fin
