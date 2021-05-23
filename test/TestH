@@ -2,7 +2,7 @@ Var x;
 Var y;
 Debut
 x=90;
-y=0-90;
+y=-90;
 Avance 200;
 Tourne y;
 Avance 300;
