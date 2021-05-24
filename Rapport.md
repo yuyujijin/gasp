@@ -5,21 +5,20 @@ La vérification d'existance et de non-double déclaration des variables se fait
 
 La seconde partie du sujet, ainsi que la plupart des suivantes se sont faites en binôme. Nous travaillions ensemble, dans la même la salle. Elle s'est faite sans difficultés particulières. Le `Tant que ... Faire ...` peut se tester avec `/test/TestTantQue`, tandis que le `Si ... Alors ... Sinon ...` peut se tester avec `/test/TestSiSinon`, si le x, ligne 5 est égal à 1 on obtient baman, sinon un H.
 
-La troisième partie a été de la même façon réalisée en binôme. On peut tester les négatifs présents avec le fichier `/test/TestH`.
+La troisième partie a été de la même façon réalisée en binôme. On peut tester les nombres négatifs présents avec le fichier `/test/TestH`.
 
 La quatrième partie se divise en trois questions.
 La première concerne l'epaisseur et la couleur des traits, que l'on a, comme le reste, implémentée en binôme. Elle peut se tester avec le fichier `/test/TestBatman`.
 La seconde nous a posé un souci particulier de par son ambiguité. En effet, l'expression suivante :
 
-`Si expression1 Alors Si expression2 Alors instruction1 Sinon instruction2` peut se comprendre de deux façons différentes.
-    1. Si expression1  
+`Si expression1 Alors Si expression2 Alors instruction1 Sinon instruction2` peut se comprendre de deux façons différentes.  
+    1)Si expression1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si expression2  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors instruction1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sinon instruction2  
-    **Ici, le conflit est résolu en avec un `reduce`**
-
-    2. Si expression1  
+    **Ici, le conflit est résolu en avec un `reduce`**  
+    2)Si expression1  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si expression2  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alors instruction1  
